@@ -1,0 +1,14 @@
+package com.cts.sbd.ui;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class CommandLineRunnerImpl4 implements CommandLineRunner {
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("This is CommandLineRunner Implementation 1 ");
+	}
+
+}

@@ -1,0 +1,43 @@
+package com.cts.adb.ui;
+
+import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ContactUI implements CommandLineRunner {
+
+	@Value("${spring.application.name:UnTitled")
+	private String title;
+	
+	@Autowired
+	private Scanner scan;
+	
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println(title);
+		System.out.println("-------------------------------");
+		
+		boolean quit = false;
+		
+		while(!quit) {
+			System.out.println("Command (ADD/DELETE/LIST/QUIT) > ");
+			String cmd = scan.nextLine();
+			
+			switch(cmd.toLowerCase()) {
+			case "add": doAdd(); break;
+			case "delete": doDelete(); break;
+			case "list": doList(); break;
+			case "quit": quit=true; break;
+			default: System.out.println("Unknown Command");			
+			}
+		}
+		
+		System.out.println("Application Terminated");
+	}
+
+	
+}

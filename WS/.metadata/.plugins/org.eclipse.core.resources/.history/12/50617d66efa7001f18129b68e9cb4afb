@@ -1,0 +1,12 @@
+@Entity
+        @Table("contacts")
+        public class Contact {
+            
+            @Id
+            private Long contactId;
+            private String fullName;
+            private String mobile;
+            private String mailId;
+
+            //constructors, setters and getters, hashvode and equals, toString
+        }

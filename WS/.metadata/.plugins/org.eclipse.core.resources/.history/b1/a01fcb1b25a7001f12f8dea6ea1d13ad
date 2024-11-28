@@ -1,0 +1,16 @@
+package com.cts.sbd.ui;
+
+import java.time.LocalTime;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+@Component
+public class CommandLineRunnerImpl5 implements CommandLineRunner {
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("This is " + this.getClass().getName() + " @ "+LocalTime.now());
+	}
+
+}

@@ -1,0 +1,7 @@
+public interface ContactRepository extends JpaRepository<Contact,Long> {
+            
+            boolean existsByMailId(String mailId);
+            Optional<Contact> findByMailId(String mailId);
+            List<Contact> findAllByFullName(String fullName);
+
+        }
