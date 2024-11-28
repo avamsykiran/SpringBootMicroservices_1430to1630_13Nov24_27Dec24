@@ -619,3 +619,42 @@ Spring Boot Microservices
                         description
                         features
                         stock
+
+        Discovery Service Design Pattern
+
+            This addresses the challenge of inter-service-communication
+
+            A discovery service is a microservice that manages a registery.
+            
+            Each time a new instance of a mciroservice starts, it will register it's address in this registry.
+            
+            If a microservice (say Ms-A) needs to request anotehr microservice (say Ms-B), then Ms-A gets the
+            address of MS-B from the discovery-service.
+
+            discovery-service
+            (netflix eureka server)
+                ↑↓
+                ||
+                ||
+                ||=========================================
+                        ↑↓              ↑↓              ↑↓
+                    MicroService-A  MicroService-B  MicroService-C
+
+
+        Load Balancer Design Pattern
+
+            Ribbon , Spring Cloud Load Balancer are two of the most commonly used
+            load balancers. These are included on each microservice to ensure that the
+            requests are equally distributed among multiple instance of a microservice.
+
+        Gateway Design Pattern
+
+            discovery-service      <----------------->     api-gateway     <---------REQs----- CLIENT (SPA / rest client)
+            (netflix eureka server)                     (spring cloud api gateway) or (zuul)
+                ↑↓                                          ↑↓    
+                ||                                          ||
+                ||                                          ||
+                ||==========================================||
+                        ↑↓              ↑↓              ↑↓
+                    MicroService-A  MicroService-B  MicroService-C
+
